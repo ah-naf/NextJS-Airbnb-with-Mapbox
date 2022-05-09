@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import { format } from 'date-fns'
 import { searchResultType } from '../utils/type'
 import InfoCard from '../components/InfoCard'
+import Map from '../components/Map'
 
 export default function Search({ searchResults }: PropsType) {
   const router = useRouter()
@@ -34,11 +35,14 @@ export default function Search({ searchResults }: PropsType) {
             <p className="button">More filters</p>
           </div>
 
-          <div className='flex flex-col'> 
+          <div className="flex flex-col">
             {searchResults.map((item, index) => (
               <InfoCard key={index} searchResult={item} />
             ))}
           </div>
+        </section>
+        <section className='hidden xl:inline-flex xl:min-w-[600px]'>
+          <Map searchResults={searchResults} />
         </section>
       </main>
 
